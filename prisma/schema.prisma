@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") 
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id                Int          @id @default(autoincrement())
+  email             String       @unique
+  hashPassword      String?
+  isActive          Boolean      @default(true)
+  firstName         String
+  lastName          String
+  phoneNumber       String?
+  pictureUrl        String?
+  dasId             String?
+  matricule         String?
+  description       String?
+  isAdmin           Boolean      @default(false)
+  isTeamLeader      Boolean      @default(false)
+  idUserTeamLeader  Int?
+  token             String?
+  tokenDate         DateTime?
+  deletedDate       DateTime?
+  lastUpdate        DateTime     @updatedAt     
+  contacts          User[]       @relation("UserContacts", references: [id]) // Relation pour les contacts
+}
+
+model Formation {
+  idformation Int          @id @default(autoincrement())
+  idfunction  Int
+  name        String
+  deletedDate DateTime?
+  description String
+  isRequired  Boolean
+  price       Float       
+  url         String
+  iconUrl     String
+  users       User[]       @relation("UserFormations")
+}
+
+model JobFunction {
+  id          Int          @id @default(autoincrement())
+  name        String
+}

@@ -1,0 +1,31 @@
+{
+    "name": "formation",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+    },
+    "dependencies": {
+        "next": "latest",
+        "react": "latest",
+        "react-dom": "latest",
+        "@prisma/client": "latest",
+        "prisma": "latest",
+        "swagger-jsdoc": "latest",
+        "swagger-ui-express": "latest",
+        "lodash": "latest",
+        "pg": "latest",
+        "joi": "latest",
+        "jsonwebtoken": "latest",
+        "axios": "latest",
+        "nodemailer": "latest",
+        "resilience4j": "latest"
+    },
+    "devDependencies": {
+        "@openapitools/openapi-generator-cli": "latest",
+        "jest": "latest",
+        "supertest": "latest"
+    }
+}
